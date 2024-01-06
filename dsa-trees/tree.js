@@ -128,11 +128,11 @@ class Tree {
 	 * @returns {number} - The count of nodes with values greater than x.
 	 */
 	numGreater(x) {
-		console.log("COUNTING NUMBERS GREATER THAN:", x);
-		console.log("This:", this);
+		// console.log("COUNTING NUMBERS GREATER THAN:", x);
+		// console.log("This:", this);
 		// Check if the tree is empty.
 		if (!this.root) {
-			console.log("Returning 0");
+			// console.log("Returning 0");
 			return 0;
 		}
 
@@ -141,21 +141,21 @@ class Tree {
 
 		while (countStack.length) {
 			const currentNode = countStack.pop();
-			console.log(
-				"CURRENT NODE VAL:",
-				currentNode.val,
-				"Children:",
-				currentNode.children
-			);
+			// console.log(
+			// 	"CURRENT NODE VAL:",
+			// 	currentNode.val,
+			// 	"Children:",
+			// 	currentNode.children
+			// );
 			if (currentNode.val > x) {
-				console.log("+1");
+				// console.log("+1");
 				count += 1;
 			}
 
 			// Add children to the stack for further processing.
 			countStack.push(...currentNode.children);
 		}
-		console.log("RETURNING COUNT:", count);
+		// console.log("RETURNING COUNT:", count);
 		return count;
 	}
 }
