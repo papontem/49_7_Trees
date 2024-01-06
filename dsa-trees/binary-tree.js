@@ -29,11 +29,11 @@ class BinaryTree {
 	 * @returns {number} - The minimum depth of the tree.
 	 */
 	minDepth() {
-		console.log("DIGGING!!");
-		console.log("This:", this);
+		// console.log("DIGGING!!");
+		// console.log("This:", this);
 		// Check if the tree is empty.
 		if (!this.root) {
-			console.log("Returning 0");
+			// console.log("Returning 0");
 			return 0;
 		}
 
@@ -149,16 +149,36 @@ class BinaryTree {
 		return maxSum;
 	}
 
-	/**
+	/** PAM: USED CODE FROM SOLUTION
 	 * nextLarger(x): Given a binary tree and a integer x.
 	 * Find and return the value of the node with next larger element in the tree i.e. find a node with value just greater than x.
 	 * Return null if no node is present with value greater than x.
 	 * @param {number} x - The lower bound for value comparison.
-	 * @returns {any|null} - The next larger element in the tree, or null if none exists.
+	 * @returns {object|null} - The next larger element in the tree, or null if none exists.
 	 */
-	nextLarger(x) {}
+	nextLarger(lowerBound) {
+		if (!this.root) return null;
 
+		// let's use BFS for this!
+		let queue = [this.root];
+		let closest = null;
 
+		while (queue.length) {
+			let currentNode = queue.shift();
+			let currentVal = currentNode.val;
+			let higherThanLowerBound = currentVal > lowerBound;
+			let shouldReassignClosest = currentVal < closest || closest === null;
+
+			if (higherThanLowerBound && shouldReassignClosest) {
+				closest = currentVal;
+			}
+
+			if (currentNode.left) queue.push(currentNode.left);
+			if (currentNode.right) queue.push(currentNode.right);
+		}
+
+		return closest;
+	}
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
