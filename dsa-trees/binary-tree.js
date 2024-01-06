@@ -1,75 +1,64 @@
-/** BinaryTreeNode: node for a general tree. */
-
+/** BinaryTreeNode: node for a binary tree. */
 class BinaryTreeNode {
-  constructor(val, left = null, right = null) {
-    this.val = val;
-    this.left = left;
-    this.right = right;
-  }
+	/**
+	 * BinaryTreeNode constructor.
+	 * @param {any} val - The value to be stored in the node.
+	 * @param {BinaryTreeNode} left - The left child node.
+	 * @param {BinaryTreeNode} right - The right child node.
+	 */
+	constructor(val, left = null, right = null) {
+		this.val = val;
+		this.left = left;
+		this.right = right;
+	}
 }
 
+/** BinaryTree: a binary tree class. */
 class BinaryTree {
-  constructor(root = null) {
-    this.root = root;
-  }
+	/**
+	 * BinaryTree constructor.
+	 * @param {BinaryTreeNode} root - The root node of the binary tree.
+	 */
+	constructor(root = null) {
+		this.root = root;
+	}
 
-  /** minDepth(): return the minimum depth of the tree -- that is,
-   * the length of the shortest path from the root to a leaf. */
+	/**
+	 * minDepth(): Return the minimum depth of the tree, i.e., the length of the shortest path from the root to a leaf.
+	 * @returns {number} - The minimum depth of the tree.
+	 */
+	minDepth() {
+		// Implementation goes here
+	}
 
-  minDepth() {
+	/**
+	 * maxDepth(): Return the maximum depth of the tree, i.e., the length of the longest path from the root to a leaf.
+	 * @returns {number} - The maximum depth of the tree.
+	 */
+	maxDepth() {
+		// Implementation goes here
+	}
 
-  }
+	/**
+	 * maxSum(): Return the maximum sum you can obtain by traveling along a path in the tree.
+	 * The path doesn't need to start at the root, but you can't visit a node more than once.
+	 * @returns {number} - The maximum sum obtainable by traveling along a path in the tree.
+	 */
+	maxSum() {
+		// Implementation goes here
+	}
 
-  /** maxDepth(): return the maximum depth of the tree -- that is,
-   * the length of the longest path from the root to a leaf. */
+	/**
+	 * nextLarger(lowerBound): Return the smallest value in the tree which is larger than lowerBound.
+	 * Return null if no such value exists.
+	 * @param {number} lowerBound - The lower bound for value comparison.
+	 * @returns {any|null} - The next larger element in the tree, or null if none exists.
+	 */
+	nextLarger(lowerBound) {
+		// Implementation goes here
+	}
 
-  maxDepth() {
-
-  }
-
-  /** maxSum(): return the maximum sum you can obtain by traveling along a path in the tree.
-   * The path doesn't need to start at the root, but you can't visit a node more than once. */
-
-  maxSum() {
-
-  }
-
-  /** nextLarger(lowerBound): return the smallest value in the tree
-   * which is larger than lowerBound. Return null if no such value exists. */
-
-  nextLarger(lowerBound) {
-
-  }
-
-  /** Further study!
-   * areCousins(node1, node2): determine whether two nodes are cousins
-   * (i.e. are at the same level but have different parents. ) */
-
-  areCousins(node1, node2) {
-
-  }
-
-  /** Further study!
-   * serialize(tree): serialize the BinaryTree object tree into a string. */
-
-  static serialize() {
-
-  }
-
-  /** Further study!
-   * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
-
-  static deserialize() {
-
-  }
-
-  /** Further study!
-   * lowestCommonAncestor(node1, node2): find the lowest common ancestor
-   * of two nodes in a binary tree. */
-
-  lowestCommonAncestor(node1, node2) {
-    
-  }
+	// Further study methods go here...
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
