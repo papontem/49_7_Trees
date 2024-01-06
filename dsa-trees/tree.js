@@ -57,10 +57,11 @@ class Tree {
 	 * @returns {number} - The sum of all values in the tree.
 	 */
 	sumValues() {
-		console.log("This:", this);
+		// console.log("SUMMING!!");
+		// console.log("This:", this);
 		// Check if the tree is empty.
 		if (!this.root) {
-			console.log("Returning 0");
+			// console.log("Returning 0");
 			return 0;
 		}
 
@@ -69,18 +70,18 @@ class Tree {
 
 		while (sumStack.length) {
 			const currentNode = sumStack.pop();
-			console.log(
-				"CURRENT NODE VAL:",
-				currentNode.val,
-				"Children:",
-				currentNode.children
-			);
+			// console.log(
+			// 	"CURRENT NODE VAL:",
+			// 	currentNode.val,
+			// 	"Children:",
+			// 	currentNode.children
+			// );
 			totalSum += currentNode.val;
 
 			// Add children to the stack for further processing.
 			sumStack.push(...currentNode.children);
 		}
-		console.log("RETURNING SUM:", totalSum);
+		// console.log("RETURNING SUM:", totalSum);
 		return totalSum;
 	}
 
@@ -89,17 +90,73 @@ class Tree {
 	 * @returns {number} - The count of nodes with even values.
 	 */
 	countEvens() {
-		// Implementation goes here
+		// console.log("COUNTING!!!");
+		// console.log("This:", this);
+		// Check if the tree is empty.
+		if (!this.root) {
+			// console.log("Returning 0");
+			return 0;
+		}
+
+		let evenCount = 0;
+		let countStack = [this.root];
+
+		while (countStack.length) {
+			const currentNode = countStack.pop();
+			// console.log(
+			// 	"CURRENT NODE VAL:",
+			// 	currentNode.val,
+			// 	"Children:",
+			// 	currentNode.children
+			// );
+			if (currentNode.val % 2 === 0) {
+				// console.log("+1");
+				evenCount += 1;
+			}
+
+			// Add children to the stack for further processing.
+			countStack.push(...currentNode.children);
+		}
+		// console.log("RETURNING COUNT:", evenCount);
+		return evenCount;
 	}
 
 	/**
-	 * numGreater(lowerBound): Given a n-ary tree and a number x, find and return the number of nodes which are greater than x.
+	 * numGreater(x): Given a n-ary tree and a number x, find and return the number of nodes which are greater than x.
 	 *
 	 * @param {number} x - The value for comparison.
-	 * @returns {number} - The count of nodes with values greater than lowerBound.
+	 * @returns {number} - The count of nodes with values greater than x.
 	 */
-	numGreater(lowerBound) {
-		// Implementation goes here
+	numGreater(x) {
+		console.log("COUNTING NUMBERS GREATER THAN:", x);
+		console.log("This:", this);
+		// Check if the tree is empty.
+		if (!this.root) {
+			console.log("Returning 0");
+			return 0;
+		}
+
+		let count = 0;
+		let countStack = [this.root];
+
+		while (countStack.length) {
+			const currentNode = countStack.pop();
+			console.log(
+				"CURRENT NODE VAL:",
+				currentNode.val,
+				"Children:",
+				currentNode.children
+			);
+			if (currentNode.val > x) {
+				console.log("+1");
+				count += 1;
+			}
+
+			// Add children to the stack for further processing.
+			countStack.push(...currentNode.children);
+		}
+		console.log("RETURNING COUNT:", count);
+		return count;
 	}
 }
 
